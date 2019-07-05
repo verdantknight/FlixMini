@@ -3,6 +3,7 @@
 Но не думаю, что поправить XML-список и добавить туда картинок будет проблемой.
 <p align="center">
 <img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacebeta.jpg" alt="" />
+<font size="12">Интерфейс приложения сейчас</font>
 </p>
 
 ## Технические характеристики
