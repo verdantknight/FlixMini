@@ -31,7 +31,8 @@ Android 5.0+\
   ...
   ]
 }
-`
+`\
+Всё приложение - пользовательский интерфейс и написанный в лучших традициях плохого кода вросший в него обработчик от Retrofit:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" /><br />
 <font size="12">Схема основных классов приложения</font>
