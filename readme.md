@@ -15,10 +15,12 @@ Android 5.0+\
 Приложение загружает данные с REST API и показывает их пользователю. В идеале, пользователь сможет ещё и искать фильмы.
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/usecase.jpg" alt="" />
+<font size="12">Use case diagram</font>
 </p>
 Сущности, которые Retrofit достаёт из REST API:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/entities.jpg" alt="" />
+<font size="12">DTO приложения</font>
 </p>
 Они соответствуют API:
 `
@@ -28,10 +30,10 @@ Android 5.0+\
   ...
   ]
 }
-`\
-Схема основных классов:
+`
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" />
+<font size="12">Схема основных классов приложения</font>
 </p>
 
 ## TODO
