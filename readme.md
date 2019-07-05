@@ -1,9 +1,9 @@
 # FlixMini
 Небольшое Android-приложение для загрузки и отображения информации о фильмах с TMDB, пока - просто заголовков фильмов.\
-Но не думаю, что поправить XMLину и добавить туда картинок будет проблемой.
-<center>
-<img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacebeta.jpg" alt="" />
-</center>
+Но не думаю, что поправить XMLьку и добавить туда картинок будет проблемой.
+
+<img align="center" width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacebeta.jpg" alt="" />
+
 
 ## Технические характеристики
 Android 5.0+\
@@ -16,9 +16,17 @@ Android 5.0+\
 <center>
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/usecase.jpg" alt="" />
 </center>
-<center>
+Сущности, которые Retrofit достаёт из REST API:
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/entities.jpg" alt="" />
-</center>
+Они соответствуют API:
+```
+{
+  "page": 1,
+  "results": [
+  ...
+  ]
+}
+```
 <center>
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" />
 </center>
@@ -41,6 +49,7 @@ Same.\
 **Почему приложение состоит из нескольких классов?**\
 Потому что о стажировке узнал поздно, и времени было мало.\
 **Было время на написание этого, но не было на проект? Рили?**\
-В чём-то я ориентируюсь очень хорошо (диаграммки и прочее), но Android для меня - новая область. Написать фичу - минут 20. Сделать так, чтобы всё работало - следующие часов 5.
+В чём-то я ориентируюсь очень хорошо (диаграммки и прочее), но Android для меня - новая область. Написать фичу - минут 20. Сделать так, чтобы всё работало - следующие часов 5.\
 За последние 3 дня, по сути, самым сложным и затратным по времени было поднять Android Studio и просто подключить телефон, чтобы эмулятор не убивал мне ноутбук.\
 **Сколько времени ушло на написание такого микропроекта?**\
+Со вторника по пятницу (3 дня): 9 часов - настройка окружения и пр., 5 часов - обучение (т. е., с нуля; можно считать, не входит в задачу), 2 часа - код, * часа - UML с описанием
