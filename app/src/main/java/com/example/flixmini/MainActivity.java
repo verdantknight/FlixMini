@@ -40,7 +40,7 @@ public class MainActivity extends ListActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
-        Call<PageEntity> call = retrofitInterface.getMovies(Constants.API_KEY);
+        Call<PageEntity> call = retrofitInterface.getMovies(Constants.API_KEY, Constants.LANGUAGE);
 
         Log.d(TAG, "call.enqueue()");
         call.enqueue(new Callback<PageEntity>() {
