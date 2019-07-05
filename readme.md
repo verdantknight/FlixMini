@@ -1,6 +1,6 @@
 # FlixMini
 Небольшое Android-приложение для загрузки и отображения информации о фильмах с TMDB, пока - просто заголовков фильмов.\
-Но не думаю, что поправить XMLьку и добавить туда картинок будет проблемой.
+Но не думаю, что поправить XML-список и добавить туда картинок будет проблемой.
 <p align="center">
 <img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacebeta.jpg" alt="" />
 </p>
@@ -19,14 +19,14 @@ Android 5.0+\
 Сущности, которые Retrofit достаёт из REST API:
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/entities.jpg" alt="" />
 Они соответствуют API:
-```
+`
 {
   "page": 1,
   "results": [
   ...
   ]
 }
-```
+`
 <center>
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" />
 </center>
