@@ -28,7 +28,8 @@ Android 5.0+\
   ...
   ]
 }
-`
+`\
+Схема основных классов:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" />
 </p>
