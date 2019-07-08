@@ -13,10 +13,11 @@
 <font size="12">Первый вариант интерфейса</font>
 </p>
 Это позволило освоиться с созданием проекта в Android и примерно понять, от чего отталкиваться.\
+
 Приложение загружает данные с REST API и показывает их пользователю. Сущности, которые Retrofit достаёт из REST API:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/entities.jpg" alt="" /><br />
-<font size="12">Entities</font>
+*Entities*
 </p>
 Они соответствуют API:
 ```
@@ -30,7 +31,7 @@
 Всё приложение - пользовательский интерфейс и написанный в лучших традициях плохого кода вросший в него обработчик от Retrofit:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" /><br />
-<font size="12">Схема основных классов приложения</font>
+<i>Схема основных классов приложения</i>
 </p>
 
 
