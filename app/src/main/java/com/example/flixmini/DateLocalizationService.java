@@ -1,15 +1,17 @@
 package com.example.flixmini;
 
-import android.text.format.DateUtils;
 import android.util.Log;
 
-import java.text.DateFormat;
+import com.example.flixmini.utils.Constants;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
+/**
+ * TODO Redo
+ */
 public class DateLocalizationService {
 
     public static String TAG = DateLocalizationService.class.getCanonicalName();
@@ -26,11 +28,20 @@ public class DateLocalizationService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         if (date == null) {
             Log.wtf(TAG, "Impossible: called DateLocalizationService.localizeDate() with wrong date type");
             return "";
         } else {
-            return DateFormat.getDateInstance(DateFormat.SHORT).format(date);
+            // TODO Redo
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            String month = calendar.getDisplayName(Calendar.MONTH,
+                    Calendar.LONG, Constants.currentLocale);
+            return String.format("%s %s %s",
+                    calendar.get(Calendar.DAY_OF_MONTH),
+                    month,
+                    calendar.get(Calendar.YEAR));
         }
     }
 

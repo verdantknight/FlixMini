@@ -61,6 +61,19 @@ Entities
 </i>
 </p>
 
+Локализация даты лежит в сервисе `DateLocalizationService`. Для него даже написан единственный в приложении тест:
+
+```java
+public class DateLocalizationServiceTest {
+    @Test
+    public void localizeDate() {
+        DateLocalizationService dateLocalizationService = new DateLocalizationService();
+        assertEquals("1 июня 2019", dateLocalizationService.localizeDate("2019-06-01"));
+    }
+}
+```
+
+Локализация реализована не лучшим образом. Хотя я вытянул её в отдельные классы (`DateLocalizationService`, `Constants`), чтобы легче было позже исправить.
 <p align="center">
 <i>
 <b>
@@ -92,10 +105,11 @@ To be continued...
 ~~Заменить List View на Recycler View~~\
 ~~Отображение описания в списке~~\
 ~~Отображение даты выхода в списке~~\
-Локализация даты\
+~~Локализация даты~~\
 Отображение постеров в списке\
 Точное соответствие вёрстки дизайну из задания\
 **Паттерн MVP**\
+Dagger DI\
 Поиск фильмов\
 Поиск фильмов: pull to refresh\
 Поиск фильмов: обработка ошибки\
@@ -105,6 +119,7 @@ To be continued...
 
 ## Недостатки проекта
 В проекте не использован Dagger. Решение не обосновано чем-то рациональным, просто пока нет времени на внедрение. Но если приложение оставить маленьким, Dagger ему не особенно и нужен.
+UPD. **В проекте есть примерно три метки TODO Dagger. Везде, где позже можно применить Dagger, ставлю метку**
 
 ## Мои мысли насчёт потенциальных улучшений
 // TODO
