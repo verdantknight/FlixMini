@@ -9,6 +9,8 @@
 Use case diagram
 </i>
 </p>
+
+## 1. Создание первого приложения
 Для начала, я сделал простой список (List View) с отображением загруженных названий.
 <p align="center">
 <img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacebeta.jpg" alt="" /><br />
@@ -16,8 +18,14 @@ Use case diagram
 Первый вариант интерфейса
 </i>
 </p>
-Это позволило освоиться с созданием проекта в Android и примерно понять, от чего отталкиваться.
-
+Это позволило освоиться с созданием проекта в Android и примерно понять, от чего отталкиваться. 
+Всё приложение - пользовательский интерфейс и написанный в лучших традициях плохого кода вросший в него обработчик от Retrofit:
+<p align="center">
+<img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" /><br />
+<i>
+Схема первого созданного приложения
+</i>
+</p>
 Приложение загружает данные с REST API и показывает их пользователю. Сущности, которые Retrofit достаёт из REST API:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/entities.jpg" alt="" /><br />
@@ -29,19 +37,22 @@ Entities
 
 ```json
 {
-  "page": 1,
-  "results": [
+  "mPage": 1,
+  "mResults": [
       {}
   ]
 }
 ```
 
-Всё приложение - пользовательский интерфейс и написанный в лучших традициях плохого кода вросший в него обработчик от Retrofit:
+## 2. RecyclerView
+Затем переделал ListView в RecyclerView, добавив больше информации и сделав интерфейс ближе к поставленной задаче:
 <p align="center">
-<img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" /><br />
+<img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacebeta1.jpg" alt="" /><br />
 <i>
-Схема основных классов приложения</i>
+Новый интерфейс с RecyclerView
+</i>
 </p>
+Пока так)
 
 <p align="center">
 <i>
@@ -60,14 +71,20 @@ To be continued...
 #### Язык реализации: **Java**
 Обоснование: уже знаю Java, Kotlin'ом (почти) не занимался, так что для быстроты реализации лучше Java.
 #### //TODO Подход к архитектуре: **MVP**
+<p align="center">
+<img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/MVP.jpg" alt="" /><br />
+<i>
+// TODO после постеров
+</i>
+</p>
 
 # Работа над приложением
 ## TODO
 ###### Напишу заранее список задач, по которому делаю приложение. Некоторые функции могу не успеть сделать.
 ~~Просто отображение названия в списке~~\
-Заменить List View на Recycler View\
-Отображение описания в списке\
-Отображение даты выхода в списке\
+~~Заменить List View на Recycler View~~\
+~~Отображение описания в списке~~\
+~~Отображение даты выхода в списке~~\
 Отображение постеров в списке\
 **Паттерн MVP**\
 Поиск фильмов\
@@ -77,7 +94,7 @@ To be continued...
 Поддержка разрешений 720x1280, 1080x1920, 720x1184, 480x800, 480x854, 540x960
 
 ## Недостатки проекта
-В проекте не использован Dagger. Решение не обосновано чем-то рациональным, просто пока нет времени на внедрение.
+В проекте не использован Dagger. Решение не обосновано чем-то рациональным, просто пока нет времени на внедрение. Но если приложение оставить маленьким, Dagger ему не особенно и нужен.
 
 ## Мои мысли насчёт потенциальных улучшений
 // TODO
@@ -90,5 +107,5 @@ To be continued...
 Это мой первый проект на Android, так что могут быть ошибки новичка в специфических для Android вопросах.
 
 # Отчёт по затраченному времени
-// TODO
+// TODO в конце
 
