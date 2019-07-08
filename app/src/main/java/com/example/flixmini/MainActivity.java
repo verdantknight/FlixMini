@@ -60,6 +60,7 @@ public class MainActivity extends ListActivity {
                             )
                     );
                 } else {
+                    Log.d(TAG, "! NOT response.isSuccessful()");
                     try {
                         Log.e(TAG, response.errorBody().string());
                     } catch (IOException e) {
