@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp"
-        android:background="@android:color/background_dark"
+        android:background="@color/background"
         android:id="@+id/recyclerView"
         android:padding="4dp"/>
 
