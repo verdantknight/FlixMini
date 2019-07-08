@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">FlixMini</string>
+    <string name="mTitle">Title</string>
+    <string name="mOverview">Overview</string>
+    <string name="release_date">Release date</string>
 </resources>
