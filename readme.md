@@ -26,12 +26,16 @@ Entities
 </i>
 </p>
 Они соответствуют API:
-    {
-      "page": 1,
-      "results": [
-      ...array of movies...
-      ]
-    }
+
+```json
+{
+  "page": 1,
+  "results": [
+      {}
+  ]
+}
+```
+
 Всё приложение - пользовательский интерфейс и написанный в лучших традициях плохого кода вросший в него обработчик от Retrofit:
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/classes.jpg" alt="" /><br />
