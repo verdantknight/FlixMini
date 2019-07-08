@@ -26,7 +26,7 @@ Use case diagram
 Схема первого созданного приложения
 </i>
 </p>
-Приложение загружает данные с REST API и показывает их пользователю. Сущности, которые Retrofit достаёт из REST API:
+Приложение загружает данные с REST API и показывает их пользователю. Сущности, которые Retrofit достаёт из REST API (их достаточно для всего будущего проекта):
 <p align="center">
 <img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/entities.jpg" alt="" /><br />
 <i>
@@ -37,8 +37,8 @@ Entities
 
 ```json
 {
-  "mPage": 1,
-  "mResults": [
+  "page": 1,
+  "results": [
       {}
   ]
 }
