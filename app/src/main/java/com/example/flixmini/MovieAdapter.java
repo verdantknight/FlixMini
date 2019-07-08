@@ -15,6 +15,10 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private List<MovieEntity> movieEntities;
+    /**
+     * TODO Dagger (!)
+     */
+    private DateLocalizationService mDateLocalizationService = new DateLocalizationService();
 
     public MovieAdapter(List<MovieEntity> movieEntities) {
         this.movieEntities = movieEntities;
@@ -33,7 +37,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         holder.mTitleTextView.setText(movie.getTitle());
         holder.mOverviewTextView.setText(String.format("%s...", movie.getOverview().substring(0, 60)));
-        holder.mReleaseDateTextView.setText(movie.getReleaseDate());
+
+        String localizedDate = mDateLocalizationService.localizeDate(movie.getReleaseDate());
+        holder.mReleaseDateTextView.setText(localizedDate);
     }
 
     @Override
