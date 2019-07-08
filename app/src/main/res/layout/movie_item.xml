@@ -69,6 +69,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="0dp"
             app:srcCompat="@drawable/ic_alendar"/>
+
+        <ImageView
+            android:id="@+id/likeImageView"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/ic_heart" />
     </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
