@@ -32,6 +32,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         MovieEntity movie = movieEntities.get(position);
 
         holder.mTitleTextView.setText(movie.getTitle());
+        holder.mOverviewTextView.setText(String.format("%s...", movie.getOverview().substring(0, 100)));
+        holder.mReleaseDateTextView.setText(movie.getReleaseDate());
     }
 
     @Override

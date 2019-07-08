@@ -3,9 +3,9 @@ package com.example.flixmini.dto;
 public class MovieEntity {
     private int id;
     private String title;
-    private String posterPath;
+    private String poster_path;
     private String overview;
-    private String releaseDate;
+    private String release_date;
 
     public int getId() {
         return id;
@@ -24,11 +24,11 @@ public class MovieEntity {
     }
 
     public String getPosterPath() {
-        return posterPath;
+        return poster_path;
     }
 
     public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
+        this.poster_path = posterPath;
     }
 
     public String getOverview() {
@@ -40,10 +40,10 @@ public class MovieEntity {
     }
 
     public String getReleaseDate() {
-        return releaseDate;
+        return release_date;
     }
 
     public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+        this.release_date = releaseDate;
     }
 }
