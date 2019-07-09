@@ -17,8 +17,6 @@
             android:layout_height="wrap_content"
             android:maxHeight="180dp"
             android:adjustViewBounds="true"/>
-        <!--android:layout_height="180dp"-->
-            <!--android:layout_height="wrap_content"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
