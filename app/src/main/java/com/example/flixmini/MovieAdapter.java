@@ -1,5 +1,6 @@
 package com.example.flixmini;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flixmini.dto.MovieEntity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+    public static String TAG = MovieAdapter.class.getCanonicalName();
     private List<MovieEntity> movieEntities;
     /**
      * TODO Dagger (!)
@@ -40,6 +43,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         String localizedDate = mDateLocalizationService.localizeDate(movie.getReleaseDate());
         holder.mReleaseDateTextView.setText(localizedDate);
+        if (movie.getPosterPath() == null) {
+            Log.d(TAG, "movie.getPosterPath()==null");
+        } else {
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/"+movie.getPosterPath()).into(holder.mImageView);
+        }
     }
 
     @Override
@@ -47,14 +55,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return movieEntities.size();
     }
 
-    public static class MovieViewHolder extends RecyclerView.ViewHolder {
+    static class MovieViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView mImageView;
-        public TextView mTitleTextView;
-        public TextView mOverviewTextView;
-        public TextView mReleaseDateTextView;
+        ImageView mImageView;
+        TextView mTitleTextView;
+        TextView mOverviewTextView;
+        TextView mReleaseDateTextView;
 
-        public MovieViewHolder(@NonNull View itemView) {
+        MovieViewHolder(@NonNull View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTitleTextView = itemView.findViewById(R.id.titleTextView);
