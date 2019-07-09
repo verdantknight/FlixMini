@@ -1,19 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:actionBarNavMode="standard"
     tools:context=".MainActivity"
-    tools:actionBarNavMode="standard">
+    android:background="@color/background">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <RelativeLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:paddingTop="@dimen/searchBarPadding"
+        android:paddingLeft="@dimen/searchBarPadding"
+        android:paddingRight="@dimen/searchBarPadding"
+        android:paddingBottom="0dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/searchWhiteLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_bar"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/ic_search" />
+
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:background="@drawable/search_bar_edit_text"
+                android:ems="10"
+                android:hint="@string/searchBarStr"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+                android:padding="2dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/movieListLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:background="@color/background"
+        android:layout_below="@+id/searchLayout">
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:padding="4dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</RelativeLayout>
