@@ -80,7 +80,7 @@ public class DateLocalizationServiceTest {
 Далее - занялся вёрсткой макета по образцу. Результат вышел с незначительными отличиями, но эти же отличия присутствуют и в образцах в задании.
 На вёрстку опять ушло некоторое количество часов. Иллюстрация:
 <p align="center">
-<img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interface.jpg" alt="" /><br />
+<img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interface.jpg" alt="" /><br />
 <i>
 "Найди пять отличий": один из экранов - из задания, другой - результат работы
 </i>
