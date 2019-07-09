@@ -7,15 +7,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
         >
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="120dp"
-            android:layout_height="180dp"
-            android:maxHeight="180dp"/>
+            android:layout_height="wrap_content"
+            android:maxHeight="180dp"
+            android:adjustViewBounds="true"/>
+        <!--android:layout_height="180dp"-->
             <!--android:layout_height="wrap_content"/>-->
 
     <RelativeLayout
@@ -23,68 +25,78 @@
         android:layout_height="match_parent"
         android:layout_toEndOf="@+id/imageView"
         android:padding="12dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:minHeight="180dp"
         >
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/mTitle"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/overviewTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/titleTextView"
+                android:layout_alignStart="@+id/titleTextView"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/mOverview"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:text="@string/mTitle"
-            android:textColor="@android:color/black"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/overviewTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_below="@+id/titleTextView"
-            android:layout_alignStart="@+id/titleTextView"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="4dp"
-            android:lineSpacingExtra="4sp"
-            android:text="@string/mOverview"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/releaseDateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/calendarImageView"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"
-            android:layout_toEndOf="@+id/calendarImageView"
-            android:padding="0dp"
-            android:text="@string/release_date"
-            android:textSize="13sp"/>
-
-        <ImageView
-            android:id="@+id/calendarImageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_below="@+id/overviewTextView"
-            android:layout_alignStart="@+id/overviewTextView"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
+            android:layout_below="@+id/topLayout"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="0dp"
-            app:srcCompat="@drawable/ic_alendar"/>
-
-        <ImageView
-            android:id="@+id/likeImageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            app:srcCompat="@drawable/ic_heart" />
+            android:layout_marginBottom="0dp">
+
+            <TextView
+                android:id="@+id/releaseDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/calendarImageView"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_toEndOf="@+id/calendarImageView"
+                android:padding="0dp"
+                android:text="@string/release_date"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/calendarImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="0dp"
+                app:srcCompat="@drawable/ic_alendar" />
+
+            <ImageView
+                android:id="@+id/likeImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                app:srcCompat="@drawable/ic_heart" />
+        </RelativeLayout>
     </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -39,14 +39,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         MovieEntity movie = movieEntities.get(position);
 
         holder.mTitleTextView.setText(movie.getTitle());
-        holder.mOverviewTextView.setText(String.format("%s...", movie.getOverview().substring(0, 60)));
+        String description = movie.getOverview();
+        if (description.length() > 60) {
+            description = String.format("%s...", description.substring(0, 60));
+        }
+        holder.mOverviewTextView.setText(description);
 
         String localizedDate = mDateLocalizationService.localizeDate(movie.getReleaseDate());
         holder.mReleaseDateTextView.setText(localizedDate);
         if (movie.getPosterPath() == null) {
             Log.d(TAG, "movie.getPosterPath()==null");
         } else {
-            Picasso.get().load("https://image.tmdb.org/t/p/w500/"+movie.getPosterPath()).into(holder.mImageView);
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.getPosterPath()).into(holder.mImageView);
         }
     }
 
