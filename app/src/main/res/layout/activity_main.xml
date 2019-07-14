@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:actionBarNavMode="standard"
-    tools:context=".MainActivity"
+    tools:context=".mainlist.MovieListActivity"
     android:background="@color/background">
 
     <RelativeLayout

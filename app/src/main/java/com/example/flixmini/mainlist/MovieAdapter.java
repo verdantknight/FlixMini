@@ -1,4 +1,4 @@
-package com.example.flixmini;
+package com.example.flixmini.mainlist;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.flixmini.R;
 import com.example.flixmini.dto.MovieEntity;
+import com.example.flixmini.utils.DateLocalizationService;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -41,7 +43,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.mTitleTextView.setText(movie.getTitle());
         String description = movie.getOverview();
         if (description.length() > 60) {
-            description = String.format("%s...", description.substring(0, 60));
+            description = String.format("%s...", description.substring(0, 50));
         }
         holder.mOverviewTextView.setText(description);
 

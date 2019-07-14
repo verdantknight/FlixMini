@@ -1,8 +1,6 @@
-package com.example.flixmini;
+package com.example.flixmini.utils;
 
 import android.util.Log;
-
-import com.example.flixmini.utils.Constants;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
