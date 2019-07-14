@@ -35,7 +35,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MovieAdapter(new ArrayList<MovieEntity>());
+        mAdapter = new MovieListAdapter(new ArrayList<MovieEntity>());
         mRecyclerView.setAdapter(mAdapter);
         mMovieListPresenter = new MovieListPresenter(this);
         mMovieListPresenter.loadMovieList();
@@ -44,7 +44,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
 
     @Override
     public void showPage(PageEntity page) {
-        mAdapter = new MovieAdapter(page.getResults());
+        mAdapter = new MovieListAdapter(page.getResults());
         mRecyclerView.setAdapter(mAdapter);
     }
 }

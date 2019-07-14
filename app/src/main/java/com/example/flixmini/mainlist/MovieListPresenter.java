@@ -17,6 +17,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieListPresenter {
+    // TODO remove android logging from presenter
     public static String TAG = MovieListPresenter.class.getCanonicalName();
     /**
      * TODO DAGGER

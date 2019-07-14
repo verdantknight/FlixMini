@@ -17,15 +17,17 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
-    public static String TAG = MovieAdapter.class.getCanonicalName();
+import static com.example.flixmini.utils.Constants.IMAGES_URL;
+
+public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
+    public static String TAG = MovieListAdapter.class.getCanonicalName();
     private List<MovieEntity> movieEntities;
     /**
      * TODO Dagger (!)
      */
     private DateLocalizationService mDateLocalizationService = new DateLocalizationService();
 
-    public MovieAdapter(List<MovieEntity> movieEntities) {
+    public MovieListAdapter(List<MovieEntity> movieEntities) {
         this.movieEntities = movieEntities;
     }
 
@@ -42,7 +44,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         holder.mTitleTextView.setText(movie.getTitle());
         String description = movie.getOverview();
-        if (description.length() > 60) {
+        if (description.length() > 55) {
             description = String.format("%s...", description.substring(0, 50));
         }
         holder.mOverviewTextView.setText(description);
@@ -52,7 +54,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         if (movie.getPosterPath() == null) {
             Log.d(TAG, "movie.getPosterPath()==null");
         } else {
-            Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.getPosterPath()).into(holder.mImageView);
+            Picasso.get().load(IMAGES_URL + movie.getPosterPath()).into(holder.mImageView);
         }
     }
 
