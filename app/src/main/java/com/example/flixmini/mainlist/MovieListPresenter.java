@@ -1,12 +1,10 @@
 package com.example.flixmini.mainlist;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
 import com.example.flixmini.dto.PageEntity;
 import com.example.flixmini.network.RetrofitInterface;
 import com.example.flixmini.utils.Constants;
+import com.example.flixmini.utils.Logger;
+import com.example.flixmini.utils.SimpleLogger;
 
 import java.io.IOException;
 
@@ -17,11 +15,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieListPresenter {
-    // TODO remove android logging from presenter
     public static String TAG = MovieListPresenter.class.getCanonicalName();
     /**
      * TODO DAGGER
      */
+    private Logger mLog = new SimpleLogger();
     private RetrofitInterface mRetrofitInterface;
     private MovieListContract.View mView;
 
@@ -35,20 +33,20 @@ public class MovieListPresenter {
         mRetrofitInterface = retrofit.create(RetrofitInterface.class);
     }
 
-    public void loadMovieList(){
-        Log.d(TAG, "Entering loadMovieList()");
+    public void loadMovieList() {
+        mLog.d(TAG, "Entering loadMovieList()");
         Call<PageEntity> call = mRetrofitInterface.getMovies(Constants.API_KEY, Constants.LANGUAGE);
 
-        Log.d(TAG, "call.enqueue()");
+        mLog.d(TAG, "call.enqueue()");
         call.enqueue(new Callback<PageEntity>() {
             @Override
-            public void onResponse(@NonNull Call<PageEntity> call, @NonNull Response<PageEntity> response) {
+            public void onResponse(Call<PageEntity> call, Response<PageEntity> response) {
                 if (response.isSuccessful()) {
                     mView.showPage(response.body());
                 } else {
-                    Log.d(TAG, "! NOT response.isSuccessful()");
+                    mLog.d(TAG, "! NOT response.isSuccessful()");
                     try {
-                        Log.e(TAG, response.errorBody().string());
+                        mLog.e(TAG, response.errorBody().string());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -56,10 +54,10 @@ public class MovieListPresenter {
             }
 
             @Override
-            public void onFailure(@NonNull Call<PageEntity> call, @NonNull Throwable t) {
-                Log.e(TAG, t.getMessage());
+            public void onFailure(Call<PageEntity> call, Throwable t) {
+                mLog.e(TAG, t.getMessage());
             }
         });
-        Log.d(TAG, "Exiting loadMovieList()");
+        mLog.d(TAG, "Exiting loadMovieList()");
     }
 }
