@@ -60,4 +60,8 @@ public class MovieListPresenter {
         });
         mLog.d(TAG, "Exiting loadMovieList()");
     }
+
+    public void search(String query) {
+
+    }
 }

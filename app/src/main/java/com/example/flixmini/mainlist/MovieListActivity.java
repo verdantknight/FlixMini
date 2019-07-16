@@ -1,7 +1,15 @@
 package com.example.flixmini.mainlist;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +32,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private MovieListPresenter mMovieListPresenter;
+    private EditText mSearchEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +41,25 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
         setContentView(R.layout.activity_main);
 
         mRecyclerView = findViewById(R.id.recyclerView);
+        mSearchEditText = findViewById(R.id.searchEditText);
+        mSearchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                Log.d(TAG, "onEditorAction()");
+                Log.d(TAG, String.format("String.valueOf(keyEvent) = %s", String.valueOf(keyEvent)));
+                Log.d(TAG, String.format("String.valueOf(actionId) = %s", String.valueOf(actionId)));
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    mMovieListPresenter.search(mSearchEditText.getText().toString());
+                    mSearchEditText.setInputType(InputType.TYPE_NULL);
+                    InputMethodManager  imm = (InputMethodManager) getSystemService(
+                            Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(mSearchEditText.getApplicationWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);

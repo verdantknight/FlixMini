@@ -44,7 +44,7 @@
                 android:background="@drawable/search_bar_edit_text"
                 android:ems="10"
                 android:hint="@string/searchBarStr"
-                android:inputType="textPersonName"
+                android:inputType="text" android:imeOptions="actionSearch"
                 android:textSize="15sp"
                 android:padding="2dp"/>
         </RelativeLayout>
