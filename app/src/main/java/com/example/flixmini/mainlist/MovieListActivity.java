@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -52,7 +51,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     mMovieListPresenter.search(mSearchEditText.getText().toString());
                     mSearchEditText.setInputType(InputType.TYPE_NULL);
-                    InputMethodManager  imm = (InputMethodManager) getSystemService(
+                    InputMethodManager imm = (InputMethodManager) getSystemService(
                             Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(mSearchEditText.getApplicationWindowToken(), 0);
                     return true;

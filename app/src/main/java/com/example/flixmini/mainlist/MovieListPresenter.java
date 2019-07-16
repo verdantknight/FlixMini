@@ -62,6 +62,31 @@ public class MovieListPresenter {
     }
 
     public void search(String query) {
+        mLog.d(TAG, "Entering search()");
+        mLog.d(TAG, String.format("query = %s", query));
+        Call<PageEntity> call = mRetrofitInterface.searchMovies(Constants.API_KEY, Constants.LANGUAGE, query);
 
+        mLog.d(TAG, "call.enqueue()");
+        call.enqueue(new Callback<PageEntity>() {
+            @Override
+            public void onResponse(Call<PageEntity> call, Response<PageEntity> response) {
+                if (response.isSuccessful()) {
+                    mView.showPage(response.body());
+                } else {
+                    mLog.d(TAG, "! NOT search response.isSuccessful()");
+                    try {
+                        mLog.e(TAG, response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PageEntity> call, Throwable t) {
+                mLog.e(TAG, t.getMessage());
+            }
+        });
+        mLog.d(TAG, "Exiting search()");
     }
 }
