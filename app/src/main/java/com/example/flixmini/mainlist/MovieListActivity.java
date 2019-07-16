@@ -2,7 +2,6 @@ package com.example.flixmini.mainlist;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
@@ -32,14 +31,17 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
     private RecyclerView.LayoutManager mLayoutManager;
     private MovieListPresenter mMovieListPresenter;
     private EditText mSearchEditText;
+    private InputMethodManager mInputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "Entering MovieListActivity.onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mRecyclerView = findViewById(R.id.recyclerView);
+
+        mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
         mSearchEditText = findViewById(R.id.searchEditText);
         mSearchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
@@ -50,10 +52,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListCon
                 Log.d(TAG, String.format("String.valueOf(actionId) = %s", String.valueOf(actionId)));
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     mMovieListPresenter.search(mSearchEditText.getText().toString());
-//                    mSearchEditText.setInputType(InputType.TYPE_NULL);
-                    InputMethodManager imm = (InputMethodManager) getSystemService(
-                            Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(mSearchEditText.getApplicationWindowToken(), 0);
+                    mInputMethodManager.hideSoftInputFromWindow(mSearchEditText.getApplicationWindowToken(), 0);
                     return true;
                 }
                 return false;

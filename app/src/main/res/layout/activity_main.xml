@@ -17,6 +17,7 @@
         android:paddingLeft="@dimen/searchBarPadding"
         android:paddingRight="@dimen/searchBarPadding"
         android:paddingBottom="0dp"
+        android:focusableInTouchMode="true"
         >
 
         <RelativeLayout
