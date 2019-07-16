@@ -138,11 +138,15 @@ public interface MovieListContract {
 На всякий случай сделал возможность для пользователя получить основной список просто по пустой строке:
 
 ```java
-    if (query.isEmpty()) {
-        loadMovieList();
-    } else {
-        // Поиск
+public class MovieListPresenter {
+    public void search(String query) {
+        if (query.isEmpty()) {
+            loadMovieList();
+        } else {
+            // Поиск
+        }
     }
+}
 ```
 
 <p align="center">
