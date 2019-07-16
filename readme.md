@@ -88,10 +88,62 @@ public class DateLocalizationServiceTest {
 </p>
 Основа приложения готова. Остаётся перерефакторить это всё в нормальную архитектуру, чтобы позже добавлять новые функции было проще.
 
-## 4. MVP и Dagger
+## 4. MVP
 В одной Activity реализовать MVP достаточно просто, но нужно написать свой логгер, чтобы полностью удалить код, связанный с android,
-из MovieListPresenter. Этот же код можно будет использовать в других частях приложения, но сначала желательно перевести проект на 
+из MovieListPresenter. Этот же код можно будет использовать в других частях приложения, но перед этим желательно перевести проект на 
 Dagger, чтобы позже не переделывать слишком многого.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/MVPclasses.jpg" alt="" /><br />
+<i>
+Классы, реализующие MVP
+</i>
+</p>
+
+MovieListPresenter ничего не знает о MovieListActivity, а только использует MovieListContract.View.
+Таким образом, MovieListPresenter становится полностью независим от платформы Android.
+Код MovieListContract.View состоит из небольшого изолирующего интерфейса:
+
+```java
+public interface MovieListContract {
+    interface View {
+        void showPage(PageEntity page);
+    }
+}
+```
+
+На данный момент, приложение состоит из большего числа классов, чем раньше:
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/projectclasses.jpg" alt="" /><br />
+<i>
+Основные классы приложения на данном этапе
+</i>
+</p>
+
+## 5. Поиск фильмов
+
+Поиск фильмов реализовывать было уже проще, потому что методы похожи на те, что используются в
+главном списке, и проект настроен и работает.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/interfacesearch.jpg" alt="" /><br />
+<i>
+Поиск почему-то выдал один и тот же фильм, но с разными постерами, описаниями и датами
+</i>
+</p>
+
+В задании почему-то написано "Кнопку “очистить(крестик)” в строке поиска реализовывать не нужно", хотя 
+это по сути приводит к застреванию пользователя в экране поиска.\
+На всякий случай сделал возможность для пользователя получить основной список просто по пустой строке:
+
+```
+    if (query.isEmpty()) {
+        loadMovieList();
+    } else {
+        // Поиск
+    }
+```
 
 <p align="center">
 <i>
@@ -113,7 +165,7 @@ To be continued...
 <p align="center">
 <img width="180" src="https://raw.githubusercontent.com/verdantknight/FlixMini/master/img/MVP.jpg" alt="" /><br />
 <i>
-Приложение *почти* построено по MVP
+Приложение построено по MVP
 </i>
 </p>
 
@@ -130,7 +182,7 @@ To be continued...
 ~~**Паттерн MVP**~~\
 Dagger DI\
 Presenter -> @Singleton\
-Поиск фильмов\
+~~Поиск фильмов~~\
 Поиск фильмов: pull to refresh\
 Поиск фильмов: обработка ошибки\
 Лайк фильму\
