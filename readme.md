@@ -139,11 +139,14 @@ public interface MovieListContract {
 
 ```java
 public class MovieListPresenter {
+    public void loadMovieList() {
+        // Загрузка обычного экрана
+    }
     public void search(String query) {
         if (query.isEmpty()) {
             loadMovieList();
         } else {
-            // Поиск
+            // Поиск фильмов
         }
     }
 }
