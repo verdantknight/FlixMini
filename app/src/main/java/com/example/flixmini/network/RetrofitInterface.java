@@ -9,7 +9,8 @@ import retrofit2.http.Query;
 public interface RetrofitInterface {
 
     @GET("discover/movie")
-    Call<PageEntity> getMovies(@Query("api_key") String apiKey, @Query("language") String language);
+    Call<PageEntity> getMovies(@Query("api_key") String apiKey,
+                               @Query("language") String language);
 
     @GET("search/movie")
     Call<PageEntity> searchMovies(@Query("api_key") String apiKey,
